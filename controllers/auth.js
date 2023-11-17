@@ -52,7 +52,7 @@ exports.login = (req,res)=> {
     const { email, password } = req.body;
 
     // Find user in the database
-    db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
+    db.query('SELECT email, password FROM users WHERE email = ?', [email], async (error, results) => {
         if (error) {
             console.log(error);
             return res.render('login', { message: 'An error occurred' });
