@@ -1,0 +1,14 @@
+var express = require('express');
+var fs = require('fs');
+var router = express.Router();
+var jsonparser = require('C:/Users/Jake/Documents/UNI WORK/YEAR 2/COMP202  (webtech)/COMP202-2207976/public/plugins/custom-JSON-parser/jsonparser.js')
+
+//Get Project List from JSON
+var projectsData = jsonparser.parseJSON(fs.readFileSync('projects.json', 'utf-8'));
+
+/* GET Projects page. */
+router.get('/projectcarousel', function (req, res, next) {
+    res.render('projectcarousel', { title: 'Carousel', projectsData: projectsData });
+});
+
+module.exports = router;

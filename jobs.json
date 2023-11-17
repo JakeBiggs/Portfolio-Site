@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Engineering Degree Apprentice",
+        "company": "GE Aviation",
+        "location": "Bishop's Cleeve, Cheltenham, UK",
+        "startDate": "September 2021",
+        "endDate": "January 2022",
+        "description": "Engineering Degree Apprentice for GE Aviation. Studying Computer & Electronics Engineering BEng. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi animi voluptatum dolor nostrum? Iure recusandae nemo tempore ea minima unde."
+    },
+    {
+        "title": "Workshop Technician",
+        "company": "Equinox Maintenance",
+        "location": "Tewksbury, Gloucestershire, UK",
+        "startDate": "January 2022",
+        "endDate": "July 2022",
+        "description": "Worked fixing laptops and PCs for Acer Warranty repair. Diagnosing and fitting parts. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi animi voluptatum dolor nostrum? Iure recusandae nemo tempore ea minima unde."
+    },
+    {
+        "title": "Full Stack Developer",
+        "company": "Freelance",
+        "location": "Falmouth, Cornwall, UK",
+        "startDate": "September 2022",
+        "endDate": "Present",
+        "description": "Making bespoke websites and software for a range of business needs. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi animi voluptatum dolor nostrum? Iure recusandae nemo tempore ea minima unde."
+    },
+    {
+        "title": "Engineering Degree Apprentice",
+        "company": "GE Aviation",
+        "location": "Bishop's Cleeve, Cheltenham, UK",
+        "startDate": "September 2021",
+        "endDate": "January 2022",
+        "description": "Engineering Degree Apprentice for GE Aviation. Studying Computer & Electronics Engineering BEng. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi animi voluptatum dolor nostrum? Iure recusandae nemo tempore ea minima unde."
+    },
+    {
+        "title": "Workshop Technician",
+        "company": "Equinox Maintenance",
+        "location": "Tewksbury, Gloucestershire, UK",
+        "startDate": "January 2022",
+        "endDate": "July 2022",
+        "description": "Worked fixing laptops and PCs for Acer Warranty repair. Diagnosing and fitting parts. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi animi voluptatum dolor nostrum? Iure recusandae nemo tempore ea minima unde."
+    },
+    {
+        "title": "Full Stack Developer",
+        "company": "Freelance",
+        "location": "Falmouth, Cornwall, UK",
+        "startDate": "September 2022",
+        "endDate": "Present",
+        "description": "Making bespoke websites and software for a range of business needs. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi animi voluptatum dolor nostrum? Iure recusandae nemo tempore ea minima unde."
+    }
+]

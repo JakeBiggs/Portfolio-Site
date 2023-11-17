@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <title>Register</title>
+</head>
+
+
+  <body id="bg-img">
+    <header>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <nav class="menu">
+        <div class="menu-branding">
+          <div class="portrait"></div>
+        </div>
+        <ul class="menu-nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link">
+              Home
+            </a>
+          </li>
+          <li class="nav-item current">
+            <a href="/login" class="nav-link">
+              Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/register" class="nav-link">
+              Register
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/projects" class="nav-link">
+              Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/about" class="nav-link">
+              About Me
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/contact" class="nav-link">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <main id="login">
+        <h1 class="lg-heading">Account <span class="span-text-secondary">Login</span></h1>
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <form action="/auth/login" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Username</label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="span-text-secondary">This is typically the email address you signed up with.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control"  name="password">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </main>
+  </body>
+
+</html>
