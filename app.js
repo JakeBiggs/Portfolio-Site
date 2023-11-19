@@ -1,6 +1,7 @@
 //Dependencies
 var createError = require('http-errors');
 var express = require('express');
+var hbs = require('hbs');
 var fs = require('fs');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -16,9 +17,16 @@ var usersRouter = require('./routes/users');
 var aboutRouter = require('./routes/about');
 var projectsRouter = require('./routes/projects');
 var contactRouter = require('./routes/contact');
+
+
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
+/*
+var logoutRouter = require('./routes/logout');
+var profileRouter = require('./routes/profile');
+*/
 
+const {checkUser } = require('./controllers/middleware');
 const { url } = require('inspector');
 var app = express();
 
@@ -31,7 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(checkUser);
 
 //Use Routes
 app.use('/', indexRouter);
@@ -41,7 +49,7 @@ app.use('/', contactRouter);
 app.use('/', loginRouter);
 app.use('/', registerRouter);
 app.use('/auth', require('./routes/auth'));
-
+app.use('/users', usersRouter);
 
 //Parse URL encoded bodies (sent by HTML forms)
 app.use(express.urlencoded({extended: false}));
@@ -51,7 +59,10 @@ app.use(express.json());
 
 
 
-app.use('/users', usersRouter);
+//Helper functions
+hbs.registerHelper('eq', function(a, b) {
+  return a === b;
+});
 
 
 // catch 404 and forward to error handler
@@ -81,5 +92,7 @@ const db = mysql.createConnection({
 db.connect( (err)=>{
   if(err){ console.log(err);} else console.log("MYSQL CONNECTED...");
 });
+
+
 
 module.exports = app;

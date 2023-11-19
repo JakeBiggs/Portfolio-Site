@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
 const authController = require('../controllers/auth')
-
-
-/* POST register form. */
-//router.post('/register', authController.register);
+const {authenticateToken} = require('../controllers/middleware')
 
 
 router.post('/register', authController.register);
 router.post('/login', authController.login);
-//router.post('/login', authController.login);
+
+router.get('/profile', authenticateToken, authController.profile);
+router.get('/logout', authController.logout);
+
+
 
 module.exports = router

@@ -12,7 +12,7 @@ var projectsData = jsonparser.parseJSON(fs.readFileSync('projects.json', 'utf-8'
 
 /* GET Projects page. */
 router.get('/projects', function (req, res, next) {
-    res.render('projects', { title: 'Projects', projectsData: projectsData });
+    res.render('projects', { currentPage: "projects", title: 'Projects', projectsData: projectsData });
 });
 
 module.exports = router;

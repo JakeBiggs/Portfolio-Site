@@ -9,7 +9,7 @@ var jobsData = JSON.parse(fs.readFileSync('jobs.json', 'utf-8'));
 
 /* GET about page. */
 router.get('/about', function (req, res, next) {
-    res.render('about', { title: "About Me", jobsData: jobsData });
+    res.render('about', { currentPage: "about", title: "About Me", jobsData: jobsData });
 });
 
 

@@ -63,13 +63,21 @@ exports.login = (req,res)=> {
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (isMatch) {
-                // Passwords match  
-                // TODO: create session/token and send success response
-
-                return res.render('index', { success_message: 'User logged in' });
-                // This part depends on how you handle sessions or tokens
+                // Passwords match, create json web token
+                const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: "7d" });  
+                
+                // Create cookie, store token in cookie and send success response
+                //HTTP only means cookie cannot be accessed by client side javascript (helps stop XSS attacks)
+                //Max age means cookie will expire after a certain amount of time (helps stop CSRF attacks)
+                //Using Number() rather than eval() to convert string to number and stop code execution (also helps against XSS)
+                // * 24 * 60 * 60 * 1000 converts days to milliseconds :-) 
+                res.cookie('jwt', token, { httpOnly: true, maxAge: eval(process.env.JWT_EXPIRES_IN) * 24 * 60 * 60 * 1000 }); 
+                res.locals.isLoggedIn = true;
+                return res.render('index', { currentPage: "index", success_message: 'User logged in' });
+                
             } else {
                 // Passwords don't match, send error response
+                res.locals.isLoggedIn = false;
                 return res.render('login', { failure_message: 'Password is incorrect' });
             }
         } else {
@@ -77,4 +85,15 @@ exports.login = (req,res)=> {
             return res.render('login', { failure_message: 'No user with that email exists' });
         }
     });
+};
+
+exports.logout = (req, res) => {
+    res.clearCookie('jwt'); //Removes session cookie
+    res.locals.isLoggedIn = false;
+    res.redirect('/'); //Redirects to homepage
+};
+
+
+exports.profile = (req, res) => {
+    return res.render('profile', { currentPage: "profile", title: 'Profile', currentUser: req.user });
 };

@@ -1,0 +1,32 @@
+<!-- None of this shit works (yet) TODO: figure out what to include here -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Page</title>
+</head>
+<body>
+  <header style="::after {z-index: 0;}">
+    <h1 style="z-index: 0;">Welcome to Your Profile</h1>
+  </header>
+
+  <main>
+    <div class="profile-card">
+      <h2>{{currentUser.name}}</h2>
+      <p>{{currentUser.bio}}</p>
+      <p>{{currentUser.location}}</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Contact Me</h3>
+      <p>Email: {{currentUser.email}}</p>
+      <p>Phone: {{currentUser.phone}}</p>
+      <p>Social Media: {{currentUser.socialMedia}}</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2022 My Profile. All rights reserved.</p>
+  </footer>
+</body>
+</html>

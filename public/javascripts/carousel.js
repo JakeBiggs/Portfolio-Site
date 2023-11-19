@@ -11,7 +11,7 @@ $(function(){
     var prev=current;
     current = current- 1;
     setSlide(prev, current);
-  });
+  }); 
   function setSlide(prev, next){
     var slide= current;
     if(next>total-1){
