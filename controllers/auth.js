@@ -1,8 +1,6 @@
 var mysql = require('mysql');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
-//const { router } = require('../app');
-//const { error } = require('jQuery');
 
 //MySQL Database
 const db = mysql.createConnection({
@@ -23,11 +21,11 @@ exports.register = (req, res) =>{
         }
         if (results.length > 0){
             return res.render('register', {
-                message: "Email already in use."
+                failure_message: "Email already in use."
             });
         }else if(password !== passwordConfirm){
             return res.render('register', {
-                message: "Passwords do not match."
+                failure_message: "Passwords do not match."
             });
         }
 
@@ -42,7 +40,7 @@ exports.register = (req, res) =>{
             }
             else
             { 
-                return res.render('register', {message: "User Registered." })
+                return res.render('register', {success_message: "User Registered." })
             }
         });
     });
@@ -55,7 +53,7 @@ exports.login = (req,res)=> {
     db.query('SELECT email, password FROM users WHERE email = ?', [email], async (error, results) => {
         if (error) {
             console.log(error);
-            return res.render('login', { message: 'An error occurred' });
+            return res.render('login', { failure_message: 'An error occurred' });
         }
 
         if (results.length > 0) {
@@ -65,18 +63,18 @@ exports.login = (req,res)=> {
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (isMatch) {
-                // Passwords match, 
+                // Passwords match  
                 // TODO: create session/token and send success response
 
-                return res.render('index', { message: 'User logged in' });
+                return res.render('index', { success_message: 'User logged in' });
                 // This part depends on how you handle sessions or tokens
             } else {
                 // Passwords don't match, send error response
-                return res.render('login', { message: 'Password is incorrect' });
+                return res.render('login', { failure_message: 'Password is incorrect' });
             }
         } else {
             // User doesn't exist, send error response
-            return res.render('login', { message: 'No user with that email exists' });
+            return res.render('login', { failure_message: 'No user with that email exists' });
         }
     });
 };

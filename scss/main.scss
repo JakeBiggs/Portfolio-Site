@@ -1,6 +1,6 @@
 @import 'config';
 @import 'menu';
-
+@include background;
 
 * {
     box-sizing: border-box;
@@ -8,8 +8,8 @@
 
 
 body {
-    @include background;
-    background: $primary-colour;
+    
+    //background: $primary-colour;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     color: set-text-colour($primary-colour);
     //height: 100%;
@@ -30,12 +30,14 @@ h3 {
 
     &.lg-heading {
         font-size: 6rem;
+
     }
 
     &.sm-heading {
         margin-bottom: 2rem;
         padding: 0.2rem 1rem;
         background: rgba(lighten($primary-colour, 2), 0.5);
+
     }
 }
 
@@ -61,7 +63,7 @@ main {
 
     .icons {
         margin-top: 1rem;
-
+       
         a {
             padding: 0.4rem;
             @include easeOut();

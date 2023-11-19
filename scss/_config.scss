@@ -1,6 +1,6 @@
-$primary-colour: #0a2342;
-$secondary-colour: #79a9d1;
-$show-home-image: true;
+$primary-colour: #004643;
+$secondary-colour: #f9bc60;
+$show-home-image: false;
 $home-image: url(../images/bgcompressed.jpg);
 $background-opacity: 0.5;
 
@@ -37,10 +37,33 @@ $background-opacity: 0.5;
                     z-index: -1;
                     background: rgba($primary-colour, $background-opacity);
                 }
-            }
-
-            
-        
+            } 
+    }
+    @else{
+        html, main {
+            width: 100%;
+            height:100%;
+          }
+          //#ee7752, #e73c7e, #23a6d5, #23d5ab originals
+          // #100491, #3c3fe7, #23a6d5, #23d5ab bad bluie;
+          // 020024, #2da8c1, #23a6d5, #23d5ab dark blue
+          body{
+              background: linear-gradient(-45deg,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+              background-size: 400% 400%;
+              animation: gradient 10s ease infinite;
+          }
+          
+          @keyframes gradient {
+              0% {
+                  background-position: 0% 50%;
+              }
+              50% {
+                  background-position: 100% 50%;
+              }
+              100% {
+                  background-position: 0% 50%;
+              }
+          }
     }
 }
 
