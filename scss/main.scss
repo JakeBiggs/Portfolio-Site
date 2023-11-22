@@ -193,7 +193,7 @@ $total: 10;
     grid-gap: 30px;
     grid-template-areas:
         'bio-image bio bio'
-        'job job job';
+        'timeline timeline timeline';
     grid-template-columns: repeat(3, 1fr);
 
 
@@ -209,32 +209,75 @@ $total: 10;
         font-size: 1.5rem;
     }
 
-    .job1 {
-        grid-area: job1;
-    }
-
-    .job2 {
-        grid-area: job2;
-    }
-
-    .job3 {
-        grid-area: job3;
-    }
-
-    .job {
-        background: rgba(lighten($primary-colour, 5), 0.5);
-        padding: 0.5rem;
-        border-bottom: $secondary-colour 5px solid;
-        border-radius: 5px;
-    }
-
-    //Apply styles to each job item 
-    @for $i from 1 through length(jobsData) {
-        .job:nth-child(#{$i}) {
-            grid-area: job#{$i};
+   
+    .timeline{
+        grid-area: timeline;
+        
+        .timeline-item{
+            transition: all 0.5s ease-in-out;
+            &:hover{
+                background: $secondary-colour;
+                color: set-text-colour($secondary-colour);
+                transform:scale(1.05);  
+            }
         }
     }
 }
+
+.timeline {
+    grid-area: timeline;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: $secondary-colour;
+}
+
+.timeline-left, .timeline-right {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.timeline-item {
+    padding: 10px 20px;
+    position: relative;
+    background: $primary-colour;
+    border-radius: 10px;
+    border-bottom: 0.25rem solid $secondary-colour;
+    margin-bottom: 20px;
+    //transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ddd;
+    
+}
+
+.timeline-left .timeline-item::before {
+    left: calc(100% + 10px);
+}
+
+.timeline-right .timeline-item::before {
+    right: calc(100% + 10px);
+}
+
 
 //Projects Page
 

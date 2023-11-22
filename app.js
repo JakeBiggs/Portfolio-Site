@@ -68,6 +68,12 @@ hbs.registerHelper('ne', function(a, b) {
   return a !== b;
 });
 
+hbs.registerHelper('isEven', function(a, options) {
+  if(a % 2 == 0) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

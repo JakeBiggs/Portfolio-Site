@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> <!-- animate on scroll-->
+
     <title>About Me</title>
 </head>
 
-<body id="bg-img">
+<body>
 
     <main id="about">
         <h1 class="lg-heading">
@@ -25,18 +26,76 @@
                     doloremque ipsum suscipit incidunt nihil illum alias blanditiis cupiditate, et repudiandae officiis
                     voluptates quo saepe porro tempore reprehenderit ut!</p>
             </div>
-            {{#each jobsData}}
-            <div class="job job-{{@index}}">
+            <!--
+            <div class="timeline">
+                {{#each jobsData}}
+                <div class="timeline-item" data-aos="{{#if @odd}}fade-right{{else}}fade-left{{/if}}">
+                    <div class="timeline-content">
+                        <h3>{{company}}</h3>
+                        <h6>{{title}}</h6>
+                        <p>{{location}}, {{startDate}}-{{endDate}}</p>
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>-->
+            <div class="timeline">
+    <div class="timeline-left">
+        {{#each jobsData}}
+        {{#isEven @index}}
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-content">
                 <h3>{{company}}</h3>
                 <h6>{{title}}</h6>
                 <p>{{location}}, {{startDate}}-{{endDate}}</p>
                 <p>{{description}}</p>
             </div>
-            {{/each}}
-
+        </div>
+        {{else}}
+        <div class="timeline-item" style="visibility: hidden;">
+            <div class="timeline-content">
+            <h3>{{company}}</h3>
+                <h6>{{title}}</h6>
+                <p>{{location}}, {{startDate}}-{{endDate}}</p>
+                <p>{{description}}</p>
+            </div>
+        </div>
+        {{/isEven}}
+        {{/each}}
+    </div>
+    <div class="timeline-right">
+        {{#each jobsData}}
+        {{^isEven @index}}
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-content">
+                <h3>{{company}}</h3>
+                <h6>{{title}}</h6>
+                <p>{{location}}, {{startDate}}-{{endDate}}</p>
+                <p>{{description}}</p>
+            </div>
+        </div>
+        {{else}}
+        <div class="timeline-item" style="visibility: hidden;">
+            <div class="timeline-content">
+            <h3>{{company}}</h3>
+                <h6>{{title}}</h6>
+                <p>{{location}}, {{startDate}}-{{endDate}}</p>
+                <p>{{description}}</p>
+            </div>
+        </div>
+        {{/isEven}}
+        {{/each}}
+    </div>
+</div>
+        
         </div>
         </div>
     </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 

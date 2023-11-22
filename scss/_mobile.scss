@@ -56,8 +56,11 @@
         grid-template-areas:
             'bio-image'
             'bio'
-            'job';
+            'timeline';
         grid-template-columns: 1fr; //1 column
+        bio{
+            width:100%;
+        }
     }
 
     .project-list{
@@ -77,8 +80,20 @@
         font-size: 5rem;;
     }  
 }
-    .project-list{
-        grid-template-columns: 1fr;
+    .about-info {
+        grid-template-areas:
+            'bio-image'
+            'bio'
+            'timeline';
+        grid-template-columns: 1fr; //1 column
+        bio{
+            width:100%;
+        }
     }
-   
+
+    .timeline {
+        .timeline-item {
+            width: 100%; // Make timeline items take up the full width of the timeline
+        }
+    }
 }
