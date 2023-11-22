@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 const {authenticateToken} = require('../controllers/middleware')
 
+
 /* GET Profile page
-   (Protected Route with JWT)  */
+   (Protected Route with JWT)  
 router.get('/auth/profile', authenticateToken, (req, res) => {
     //Will only get here if the authenticateToken middleware function calls next()
 
@@ -11,3 +12,4 @@ router.get('/auth/profile', authenticateToken, (req, res) => {
 });
 
 module.exports = router;
+*/

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/plugins/owl-carousel/owl.carousel.css"/>
    
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 
@@ -18,42 +17,9 @@
             My <span class="span-text-secondary">Projects</span>
         </h1>
         <h2 class="sm-heading">Check out some of my work...</h2>
-
-
-        <div class="carousel">
-            <div class="carousel__nav">
-                <span id="moveLeft" class="carousel__arrow">
-                    <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-                    </svg>
-                </span>
-                <span id="moveRight" class="carousel__arrow" >
-                    <svg class="carousel__icon"  width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-                    </svg>    
-                </span>
-            </div>
-
-            {{#each projectsData}}
-            
-            <div class="carousel-item carousel-item--{{@index}}">
-            
-            {{#with images.[0]}}    
-                <div class="carousel-item__image" style="background-image: url({{url}})"></div>
-            {{/with}}
-                <div class="carousel-item__info"></div>
-                <div class="carousel-item__container"></div>
-                <h2 class="carousel-item__subtitle">Project {{@index}} </h2>
-                <h1 class="carousel-item__title">{{title}}</h1>
-                <p class="carousel-item__description">{{description}}</p>
-                <a href="{{git}}" class="carousel-item__btn">Github Link</a>
-                
-            </div>
-            {{/each}}
-        </div>
-   <hr class="border border-primary border-3 opacity-75">
-  
+  <hr class="border border-3 opacity-75">
     <div class="project-list">
+    
     {{#each projectsData}}
     <div class="card" style="width: 18rem;">
         {{#with images.[0]}}
@@ -69,14 +35,14 @@
     {{/each}}
     </div >
    </div>
-    <hr class="border border-primary border-3 opacity-75">
+    <hr class="border border-3 opacity-75">
     
     </main>
  <script defer src="/plugins/owl-carousel/owl.carousel.min.js"></script>
     <script src="/javascripts/carousel.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-    <footer id="main-footer">Copyright &copy; 2023</footer>
+   
 
 </body>
 

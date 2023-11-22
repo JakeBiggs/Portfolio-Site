@@ -10,6 +10,7 @@ const db = mysql.createConnection({
     database: process.env.DATABASE, 
   });
 
+
 exports.register = (req, res) =>{
     console.log(req.body);
     
@@ -27,8 +28,11 @@ exports.register = (req, res) =>{
             return res.render('register', {
                 failure_message: "Passwords do not match."
             });
+        }else if (!name || !email || !password) {
+            return res.render('register', {
+              failure_message: 'Please enter all fields'
+            });
         }
-
         let hashedPassword = await bcrypt.hash(password, 8); //Hashing with 8 rounds of encryption
         //Await because hashing could take longer than 1 compiler cycle, async allows this
         console.log(hashedPassword);
@@ -38,17 +42,25 @@ exports.register = (req, res) =>{
             { 
                 console.log(error);
             }
-            else
-            { 
+            else{ 
                 return res.render('register', {success_message: "User Registered." })
             }
         });
     });
 }
 
+
+  
+
 exports.login = (req,res)=> {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).render("login", {
+          message: 'Please provide email and password'
+        });
+      }
+    
     // Find user in the database
     db.query('SELECT email, password FROM users WHERE email = ?', [email], async (error, results) => {
         if (error) {
@@ -64,15 +76,17 @@ exports.login = (req,res)=> {
 
             if (isMatch) {
                 // Passwords match, create json web token
-                const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { expiresIn: "7d" });  
-                
+                const token = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, { expiresIn: "7d" });  
+       
                 // Create cookie, store token in cookie and send success response
-                //HTTP only means cookie cannot be accessed by client side javascript (helps stop XSS attacks)
-                //Max age means cookie will expire after a certain amount of time (helps stop CSRF attacks)
-                //Using Number() rather than eval() to convert string to number and stop code execution (also helps against XSS)
-                // * 24 * 60 * 60 * 1000 converts days to milliseconds :-) 
-                res.cookie('jwt', token, { httpOnly: true, maxAge: eval(process.env.JWT_EXPIRES_IN) * 24 * 60 * 60 * 1000 }); 
+                // HTTP only means cookie cannot be accessed by client side javascript (helps stop XSS attacks)
+                // Max age means cookie will expire after a certain amount of time (helps stop CSRF attacks)
+                // Using Number() rather than eval() to convert string to number and stop code execution (also helps against XSS)
+                // * 24 * 60 * 60 * 1000 converts days to milliseconds :-)
+        
+                res.cookie('jwt', token, { httpsOnly: true, maxAge: Number(process.env.JWT_EXPIRES_IN) * 24 * 60 * 60 * 1000 }); 
                 res.locals.isLoggedIn = true;
+                res.locals.currentUser = user;
                 return res.render('index', { currentPage: "index", success_message: 'User logged in' });
                 
             } else {
@@ -95,5 +109,7 @@ exports.logout = (req, res) => {
 
 
 exports.profile = (req, res) => {
-    return res.render('profile', { currentPage: "profile", title: 'Profile', currentUser: req.user });
+    //Will only get here if the authenticateToken middleware function calls next() 
+    return res.render('profile', { currentPage: "profile", title: 'Profile', currentUser: res.locals.currentUser });
+
 };

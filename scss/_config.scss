@@ -1,5 +1,5 @@
-$primary-colour:#8c0101;
-$secondary-colour: #c8b6b6;
+$primary-colour:#f8f5f2;
+$secondary-colour: #078080;
 $show-home-image: false;
 $home-image: url(../images/bgcompressed.jpg);
 $background-opacity: 0.5;
@@ -8,6 +8,28 @@ $background-opacity: 0.5;
 /// #004643 (green) and #f9bc60 (yellowy)
 /// #0a2342 (dark blue) and #79a9d1 (light blue)
 /// #fffffe (not white) and #79a9d1 (light blue)
+
+$theme: "light";
+
+//Set theme
+@mixin theme($theme) {
+    @if $theme == "dark" {
+        $primary-colour: #0d0d0d;
+        $secondary-colour: #fffffe;
+        $show-home-image: false;
+        $home-image: url(../images/bgcompressed.jpg);
+        $background-opacity: 0.5;
+    }
+    @else if $theme == "light" {
+        $primary-colour: #f8f5f2;
+        $secondary-colour: #078080;
+        $show-home-image: false;
+        $home-image: url(../images/bgcompressed.jpg);
+        $background-opacity: 0.5;
+    }
+}
+
+
 
 @mixin easeOut {
     transition: all 0.5s ease-out;
@@ -44,12 +66,16 @@ $background-opacity: 0.5;
             width: 100%;
             height:100%;
           }
-          //#ee7752, #e73c7e, #23a6d5, #23d5ab originals
-          // #100491, #3c3fe7, #23a6d5, #23d5ab bad bluie;
+          
+          // #ee7752, #e73c7e, #23a6d5, #23d5ab originals
+          // #100491, #3c3fe7, #23a6d5, #23d5ab bad blue;
           // #004643, #f9bc60, #23a6d5, #003643
           // #8c0101, #2e1c00, #ab0000, #c8b6b6
+          // #8c0101, #0d0d0d,#8c0101, #ab0000
+          // #f8f5f2, #078080, #f45d48, #232323
+          
           body{
-              background: linear-gradient(-45deg, #8c0101, #0d0d0d,#8c0101, #ab0000);
+              background: linear-gradient(-45deg,#f8f5f2, #0d0d0d, #fffffe, #232323);
               background-size: 400% 1000%;
               animation: gradient 15s ease infinite;
           }
@@ -59,7 +85,7 @@ $background-opacity: 0.5;
                   background-position: 0% 50%;
               }
               50% {
-                  background-position: 100% 50%;
+                  background-position: 50% 50%;
               }
               100% {
                   background-position: 0% 50%;

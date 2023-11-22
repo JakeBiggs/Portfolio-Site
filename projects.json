@@ -1,5 +1,27 @@
 [
     {
+        "title": "Custom JSON Parser",
+        "description": "A proof of concept custom JSON parser for my portfolio website. (Used to display this!)",
+        "url": "https://github.com/JakeBiggs/Custom-JSON-Parser/archive/refs/heads/main.zip",
+        "git": "https://github.com/JakeBiggs/Custom-JSON-Parser",
+        "skills": [
+            "Javascript",
+            "JSON",
+            "Compilers",
+            "Data Structures"
+        ],
+        "images": [
+        {   "id": "img1",
+            "url": "/images/json.png",
+            "alt": "JSON Logo"
+        },
+        {
+            "id": "img2",
+            "url": "/images/JSON1.png",
+            "alt": "JSON"
+        }]
+    },
+    {
         "title": "Caelidh",
         "description": "Ceilidh is a roguelike dungeon crawler game based on Jack the giant slayer from Celtic mythology. Players will take on the role of Jack as they navigate through procedurally generated dungeons, fighting off monsters and collecting treasure along with a range of cards to expand your abilities!.",
         "url": "https://unitygroup16.itch.io/ceilidh",
@@ -7,8 +29,8 @@
         "skills": [
             "C#",
             "Unity",
-            "Arduino",
-            "LaTeX"
+            "Game Design",
+            "Agile Development"
         ],
         "images": [
         {   "id": "img1",
@@ -40,34 +62,12 @@
         "images": [
         {   "id": "img1",
             "url": "/images/raycaster1.png",
-            "alt": "Raycaster Screenshot"
+            "alt": "Raycaster with distant light Screenshot"
         },
         {
             "id": "img2",
-            "url": "/images/spacegame2.png",
-            "alt": "SpaceGame Gameplay Screenshot"
-        }]
-    },
-    {
-        "title": "Custom JSON Parser",
-        "description": "A proof of concept custom JSON parser for my portfolio website. (Used to display this!)",
-        "url": "https://github.com/JakeBiggs/Custom-JSON-Parser/archive/refs/heads/main.zip",
-        "git": "https://github.com/JakeBiggs/Custom-JSON-Parser",
-        "skills": [
-            "Javascript",
-            "JSON",
-            "Compilers",
-            "Data Structures"
-        ],
-        "images": [
-        {   "id": "img1",
-            "url": "/images/json.png",
-            "alt": "JSON Logo"
-        },
-        {
-            "id": "img2",
-            "url": "/images/JSON1.png",
-            "alt": "JSON"
+            "url": "/images/raycaster2.png",
+            "alt": "Raycaster with point light Screenshot"
         }]
     },
     {

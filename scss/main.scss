@@ -20,15 +20,17 @@ html, body{
 
 
 body {
-    
+    position: relative;
     //background: $primary-colour;
+    
+    margin: 0;
+   
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: set-text-colour($primary-colour);
     //height: 100%;
-    margin: 0;
+    
     line-height: 1.5;
-    padding: 0;
     
     #bg-img {
         padding-left: 0;
@@ -66,7 +68,7 @@ header {
     z-index: 3;
     width: 100%;
     height: 10vh;
-    min-height: 3vh;
+    min-height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,26 +106,6 @@ header {
     }
 }
 
-footer{
-    width:100vw;
-    z-index: 3;
-    position:fixed;
-    bottom:0;
-    left:0;
-    background: linear-gradient(90deg, #8c0101, #0d0d0d,#8c0101, #0d0d0d);
-    animation: gradient 15s ease infinite;
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-}
 .span-text-secondary {
     color: $secondary-colour;
     text-shadow:
@@ -135,9 +117,10 @@ footer{
 
 main {
     padding: 4rem;
-    //height: 100%;
+    height: 100%;
     min-height: calc(100vh - 60px);
-
+    flex: 1 0 auto;
+    padding-bottom: 60px;
     .icons {
         margin-top: 1rem;
        
@@ -167,12 +150,6 @@ main {
 }
 
 //SVG Background animation
-$green: #7ceaa4;
-$purple: #3b3d54;
-
-*{
-  box-sizing: border-box;
-}
 
 .wrap{
   perspective-origin: 50% 50%;
@@ -261,235 +238,30 @@ $total: 10;
 
 //Projects Page
 
-.project-list {
-    
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 0.7rem;
-    .project-item {
-      display: flex;
-      flex-direction: column;
-  
-      img {
-        flex: 1; // Allow images to grow vertically
-        object-fit: cover; // Maintain aspect ratio and cover container
-        max-width: 100%; // Ensure the image doesn't exceed the container width
-        height: auto; // Maintain aspect ratio
-  
-        // Define a maximum height for the images
-        min-height: 3%;
-        max-height: 30vh; // Adjust this value as needed
-  
-        // to set a specific height and allow scrolling for tall images
-        // height: 300px; // Set a specific height
-        // overflow: auto; // Enable scrolling for tall images
-  
-        border: 3px set-text-colour($primary-colour) solid;
-  
-  
-        &:hover{
-            opacity: 0.5;
-            border-color: $secondary-colour;
-            @include easeOut;
+//Extra carousel stylings
+.carousel{
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+
+    border-radius: 5px;
+
+    @include easeOut;
+    &:hover{
+        .carousel-control-prev,
+        .carousel-control-next{
+            opacity: 1;
         }
     }
-    }
 }
 
-//Carousel Styling
-$color_1: #7E7E7E;
-$color_2: #2C2C2C;
-$color_3: #7e7e7e;
-$font-family_1: 'Open Sans', sans-serif;
-$font-family_2: 'Playfair Display', serif;
-$background-color_1: #fff;
-$background-color_2: #b0b0b0;
-
-@import "https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i";
-@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i";
-* {
-	box-sizing: border-box;
+.carousel-item img{
+    width: 100%;
+    height:50vh;
+    object-fit: cover;
 }
-.carousel {
-	width: 100%;
-	height: 100%;
-    //max-height: 50vh;
-	display: flex;
-	overflow: hidden;
-	position: relative;
-    border-radius: 1rem;
-    margin-top: 2rem;
-}
-
-.carousel-item {
-	visibility: visible;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-	justify-content: flex-end;
-	-webkit-align-items: center;
-	-webkit-justify-content: flex-end;
-	position: relative;
-	background-color: $background-color_1;
-	flex-shrink: 0;
-	-webkit-flex-shrink: 0;
-	//position: absolute;
-	z-index: 0;
-	transition: 0.6s all linear;
-}
-.carousel-item__info {
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	display: -webkit-flex;
-	-webkit-justify-content: center;
-	-webkit-flex-direction: column;
-	order: 1;
-	left: 0;
-	margin: auto;
-	padding: 0 40px;
-	width: 40%;
-}
-
-
-.carousel-item__image {
-	width: 60%;
-	height: 100%;
-	order: 2;
-	align-self: flex-end;
-	flex-basis: 60%;
-	-webkit-order: 2;
-	-webkit-align-self: flex-end;
-	-webkit-flex-basis: 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	transform: translateX(100%);
-	transition: 0.6s all ease-in-out;
-}
-.carousel-item__subtitle {
-	font-family: $font-family_1;
-	letter-spacing: 3px;
-	font-size: 10px;
-	text-transform: uppercase;
-	margin: 0;
-	color: $color_1;
-	font-weight: 700;
-	transform: translateY(25%);
-	opacity: 0;
-	visibility: hidden;
-	transition: 0.4s all ease-in-out;
-}
-.carousel-item__title {
-	margin: 15px 0 0 0;
-	font-family: $font-family_2;
-	font-size: 44px;
-	line-height: 45px;
-	letter-spacing: 3px;
-	font-weight: 700;
-	color: $color_2;
-	transform: translateY(25%);
-	opacity: 0;
-	visibility: hidden;
-	transition: 0.6s all ease-in-out;
-}
-.carousel-item__description {
-	transform: translateY(25%);
-	opacity: 0;
-	visibility: hidden;
-	transition: 0.6s all ease-in-out;
-	margin-top: 35px;
-	font-family: $font-family_1;
-	font-size: 13px;
-	color: $color_3;
-	line-height: 22px;
-	margin-bottom: 35px;
-}
-.carousel-item__btn {
-	width: 35%;
-	color: $color_2;
-	font-family: $font-family_1;
-	letter-spacing: 3px;
-	font-size: 11px;
-	text-transform: uppercase;
-	margin: 0;
-	width: 35%;
-	font-weight: 700;
-	text-decoration: none;
-	transform: translateY(25%);
-	opacity: 0;
-	visibility: hidden;
-	transition: 0.6s all ease-in-out;
-}
-.carousel__nav {
-	position: absolute;
-	right: 0;
-	z-index: 2;
-	background-color: $background-color_1;
-	bottom: 0;
-}
-.carousel__icon {
-	display: inline-block;
-	vertical-align: middle;
-	width: 16px;
-	fill: #5d5d5d;
-}
-.carousel__arrow {
-	cursor: pointer;
-	display: inline-block;
-	padding: 11px 15px;
-	position: relative;
-    
-	&:nth-child(1) {
-		&:after {
-			content: '';
-			right: -3px;
-			position: absolute;
-			width: 1px;
-			background-color: $background-color_2;
-			height: 14px;
-			top: 50%;
-			margin-top: -7px;
-		}
-	}
-}
-.active {
-	z-index: 1;
-	display: flex;
-	visibility: visible;
-	.carousel-item__subtitle {
-		transform: translateY(0);
-		opacity: 1;
-		transition: 0.6s all ease-in-out;
-		visibility: visible;
-	}
-	.carousel-item__title {
-		transform: translateY(0);
-		opacity: 1;
-		transition: 0.6s all ease-in-out;
-		visibility: visible;
-	}
-	.carousel-item__description {
-		transform: translateY(0);
-		opacity: 1;
-		transition: 0.6s all ease-in-out;
-		visibility: visible;
-	}
-	.carousel-item__btn {
-		transform: translateY(0);
-		opacity: 1;
-		transition: 0.6s all ease-in-out;
-		visibility: visible;
-	}
-	.carousel-item__image {
-		transition: 0.6s all ease-in-out;
-		transform: translateX(0);
-	}
-}
-
 
 //Contact Page
 .boxes{
@@ -585,9 +357,16 @@ $background-color_2: #b0b0b0;
     border: 0;
     margin-bottom: 0.3rem;
     &:hover{
-        background: $secondary-colour;
+        background: rgba($secondary-colour,0.8);
         color: set-text-color($secondary-colour);
     }
+}
+
+.btn-standard{
+    @extend .btn;
+    background: rgba(lighten($secondary-colour, 2),1);
+    color: set-text-colour($primary-colour);
+
 }
 
 .btn-dark{
@@ -604,6 +383,12 @@ $background-color_2: #b0b0b0;
     color: #0d0d0d;
 }
 
+
+footer{
+    width: 100%;
+    z-index: 3;
+}
+
 #main-footer {
     text-align: center;
     padding: 1rem;
@@ -611,5 +396,6 @@ $background-color_2: #b0b0b0;
     color: set-text-colour($primary-colour);
     height: 60px;
 }
+
 
 @import 'mobile';
