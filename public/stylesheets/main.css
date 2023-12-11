@@ -1,3 +1,23 @@
+/*
+@mixin theme($theme) {
+    @if $theme == "dark" {
+        $primary-colour: #0d0d0d;
+        $secondary-colour: #fffffe;
+        $show-home-image: false;
+        $home-image: url(../images/bgcompressed.jpg);
+        $background-opacity: 0.5;
+    }
+    @else if $theme == "light" {
+        $primary-colour: #f8f5f2;
+        $secondary-colour: #078080;
+        $show-home-image: false;
+        $home-image: url(../images/bgcompressed.jpg);
+        $background-opacity: 0.5;
+    }
+}
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit&family=Montserrat&family=Playfair+Display&family=Raleway&display=swap");
 .menu-btn {
   z-index: 3;
   cursor: pointer;
@@ -114,6 +134,7 @@ body {
     background-position: 0% 50%; } }
 
 * {
+  font-family: "Raleway", sans-serif;
   box-sizing: border-box; }
 
 html, body {
@@ -127,7 +148,7 @@ html, body {
 body {
   position: relative;
   margin: 0;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #0d0d0d;
   line-height: 1.5; }
@@ -223,134 +244,134 @@ main {
   transform-style: preserve-3d; }
 
 .svg:nth-child(1) {
-  left: 86%;
-  animation: raise1 15s linear infinite;
-  animation-delay: 0s;
-  transform: scale(-0.3) rotate(34deg);
+  left: 70%;
+  animation: raise1 8s linear infinite;
+  animation-delay: -1s;
+  transform: scale(-0.3) rotate(99deg);
   z-index: -9;
   filter: blur(-5px); }
 
 @keyframes raise1 {
   to {
     bottom: 150vh;
-    transform: scale(-0.3) rotate(261deg); } }
+    transform: scale(-0.3) rotate(164deg); } }
 
 .svg:nth-child(2) {
-  left: 87%;
-  animation: raise2 15s linear infinite;
-  animation-delay: 0s;
-  transform: scale(0) rotate(279deg);
+  left: 24%;
+  animation: raise2 13s linear infinite;
+  animation-delay: -1s;
+  transform: scale(0) rotate(99deg);
   z-index: -8;
   filter: blur(-4px); }
 
 @keyframes raise2 {
   to {
     bottom: 150vh;
-    transform: scale(0) rotate(360deg); } }
+    transform: scale(0) rotate(231deg); } }
 
 .svg:nth-child(3) {
-  left: -1%;
-  animation: raise3 14s linear infinite;
-  animation-delay: -1s;
-  transform: scale(0.3) rotate(196deg);
+  left: 46%;
+  animation: raise3 19s linear infinite;
+  animation-delay: -3s;
+  transform: scale(0.3) rotate(356deg);
   z-index: -7;
   filter: blur(-3px); }
 
 @keyframes raise3 {
   to {
     bottom: 150vh;
-    transform: scale(0.3) rotate(6deg); } }
+    transform: scale(0.3) rotate(39deg); } }
 
 .svg:nth-child(4) {
-  left: 97%;
-  animation: raise4 15s linear infinite;
-  animation-delay: -3s;
-  transform: scale(0.6) rotate(232deg);
+  left: 4%;
+  animation: raise4 10s linear infinite;
+  animation-delay: -2s;
+  transform: scale(0.6) rotate(82deg);
   z-index: -6;
   filter: blur(-2px); }
 
 @keyframes raise4 {
   to {
     bottom: 150vh;
-    transform: scale(0.6) rotate(38deg); } }
+    transform: scale(0.6) rotate(236deg); } }
 
 .svg:nth-child(5) {
-  left: 26%;
-  animation: raise5 17s linear infinite;
-  animation-delay: 0s;
-  transform: scale(0.9) rotate(278deg);
+  left: 35%;
+  animation: raise5 10s linear infinite;
+  animation-delay: -4s;
+  transform: scale(0.9) rotate(271deg);
   z-index: -5;
   filter: blur(-1px); }
 
 @keyframes raise5 {
   to {
     bottom: 150vh;
-    transform: scale(0.9) rotate(79deg); } }
+    transform: scale(0.9) rotate(337deg); } }
 
 .svg:nth-child(6) {
-  left: 13%;
-  animation: raise6 12s linear infinite;
+  left: 41%;
+  animation: raise6 17s linear infinite;
   animation-delay: -3s;
-  transform: scale(1.2) rotate(313deg);
+  transform: scale(1.2) rotate(166deg);
   z-index: -4;
   filter: blur(0px); }
 
 @keyframes raise6 {
   to {
     bottom: 150vh;
-    transform: scale(1.2) rotate(224deg); } }
+    transform: scale(1.2) rotate(87deg); } }
 
 .svg:nth-child(7) {
-  left: 42%;
-  animation: raise7 10s linear infinite;
+  left: 4%;
+  animation: raise7 12s linear infinite;
   animation-delay: -1s;
-  transform: scale(1.5) rotate(33deg);
+  transform: scale(1.5) rotate(35deg);
   z-index: -3;
   filter: blur(1px); }
 
 @keyframes raise7 {
   to {
     bottom: 150vh;
-    transform: scale(1.5) rotate(12deg); } }
+    transform: scale(1.5) rotate(47deg); } }
 
 .svg:nth-child(8) {
-  left: 65%;
-  animation: raise8 17s linear infinite;
-  animation-delay: 0s;
-  transform: scale(1.8) rotate(356deg);
+  left: 95%;
+  animation: raise8 20s linear infinite;
+  animation-delay: -2s;
+  transform: scale(1.8) rotate(24deg);
   z-index: -2;
   filter: blur(2px); }
 
 @keyframes raise8 {
   to {
     bottom: 150vh;
-    transform: scale(1.8) rotate(141deg); } }
+    transform: scale(1.8) rotate(118deg); } }
 
 .svg:nth-child(9) {
-  left: 6%;
-  animation: raise9 20s linear infinite;
-  animation-delay: 0s;
-  transform: scale(2.1) rotate(26deg);
+  left: -12%;
+  animation: raise9 11s linear infinite;
+  animation-delay: -4s;
+  transform: scale(2.1) rotate(355deg);
   z-index: -1;
   filter: blur(3px); }
 
 @keyframes raise9 {
   to {
     bottom: 150vh;
-    transform: scale(2.1) rotate(66deg); } }
+    transform: scale(2.1) rotate(288deg); } }
 
 .svg:nth-child(10) {
-  left: 75%;
-  animation: raise10 20s linear infinite;
-  animation-delay: -2s;
-  transform: scale(2.4) rotate(337deg);
+  left: 89%;
+  animation: raise10 10s linear infinite;
+  animation-delay: -3s;
+  transform: scale(2.4) rotate(299deg);
   z-index: 0;
   filter: blur(4px); }
 
 @keyframes raise10 {
   to {
     bottom: 150vh;
-    transform: scale(2.4) rotate(296deg); } }
+    transform: scale(2.4) rotate(283deg); } }
 
 .about-info {
   display: grid;
@@ -365,6 +386,13 @@ main {
   .about-info .bio {
     grid-area: bio;
     font-size: 1.5rem; }
+    .about-info .bio .card {
+      border: #078080 1px solid; }
+    .about-info .bio .card-header {
+      border-bottom: #078080 1px solid; }
+  .about-info .bio-text {
+    font-size: 1rem;
+    padding: 1rem; }
   .about-info .timeline {
     grid-area: timeline; }
     .about-info .timeline .timeline-item {
@@ -410,13 +438,16 @@ main {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #ddd; }
+  background: #e16162; }
 
 .timeline-left .timeline-item::before {
   left: calc(100% + 10px); }
 
 .timeline-right .timeline-item::before {
   right: calc(100% + 10px); }
+
+.bg-tertiary {
+  background: #e16162; }
 
 .carousel {
   width: 100%;
@@ -453,49 +484,6 @@ main {
       color: #fffffe; }
       .boxes div:hover span {
         color: #fffffe; }
-
-.contact-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem; }
-  .contact-form .form-section {
-    width: 90%;
-    max-width: 60vw;
-    font-size: 1.5rem;
-    text-align: center;
-    border: 3px #078080 solid;
-    padding: 1.5rem 2.5rem;
-    margin: 0.5rem;
-    box-sizing: border-box; }
-    .contact-form .form-section label {
-      display: block;
-      margin-bottom: 0.5rem; }
-    .contact-form .form-section input[type="text"],
-    .contact-form .form-section input[type="email"],
-    .contact-form .form-section textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      resize: none; }
-  .contact-form .submit {
-    width: 100%;
-    height: 100%;
-    background-color: #f8f5f2;
-    color: #0d0d0d;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out; }
-    .contact-form .submit:hover {
-      background-color: white; }
 
 .btn, .btn-standard, .btn-dark, .btn-light {
   display: block;

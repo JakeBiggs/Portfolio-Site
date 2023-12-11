@@ -1,5 +1,7 @@
 $primary-colour:#f8f5f2;
 $secondary-colour: #078080;
+$tertiary-colour: #e16162; 
+$tertiary-colour2: #f45d48;
 $show-home-image: false;
 $home-image: url(../images/bgcompressed.jpg);
 $background-opacity: 0.5;
@@ -9,9 +11,10 @@ $background-opacity: 0.5;
 /// #0a2342 (dark blue) and #79a9d1 (light blue)
 /// #fffffe (not white) and #79a9d1 (light blue)
 
-$theme: "light";
+//$theme: "light";
 
 //Set theme
+/*
 @mixin theme($theme) {
     @if $theme == "dark" {
         $primary-colour: #0d0d0d;
@@ -28,7 +31,7 @@ $theme: "light";
         $background-opacity: 0.5;
     }
 }
-
+*/
 
 
 @mixin easeOut {
